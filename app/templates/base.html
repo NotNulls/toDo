@@ -1,0 +1,45 @@
+{% extends 'bootstrap/base.html' %}
+
+  <style>
+    body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    }
+    header {
+    padding: 20px 0;
+    }
+    header .row {
+    display: flex;
+    align-items: center;
+    }
+    header h1 {
+    font-weight: 700;
+    margin: 0;
+    color: blue;
+    }
+    header nav {
+    display: flex;
+    justify-content: flex-end;
+    }
+    header p {
+    padding: 0 20px;
+    margin: 0;
+    color: blue;
+    }
+  
+  </style>
+  <body>
+    <header class="container">
+       <div class="row">
+          <h1 class="col-sm-4">Stay Organised</h1>
+          <nav class="col-sm-8 text-right">
+             <p><a href=" ">Home</a></p>
+             <p><a href=" ">Login</a></p>
+             <p><a href=" ">Register</a></p>
+             <p><a href=" ">Logout</a></p>
+          </nav>
+       </div>
+    </header>
+    {% block content %}
+    {% endblock  %}
+  </body>
