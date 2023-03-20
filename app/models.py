@@ -28,3 +28,4 @@ class Task(db.Model):
 
     def __repr__(self) -> str:
         return f'Task {self.task_name}{self.due_date}'
+    
