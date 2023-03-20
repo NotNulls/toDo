@@ -3,10 +3,11 @@
 
 {% block content %}
 
-{{ form.hidden_tag() }}
+
 <section class="container">
     <h1>Registration</h1>
     <div class="row ">
+        {{ form.hidden_tag() }}
         <div class="col-xs-6 col-xs-offset-3s">
             {{ wtf.quick_form(form) }}
         </div>

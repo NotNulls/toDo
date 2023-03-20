@@ -1,5 +1,8 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block title %}
+   {% if title %} {{ title }} {% else %} Welcome to To Do list {% endif %}
+{% endblock %}
   <style>
     body {
     font-family: 'Roboto', sans-serif;
@@ -28,18 +31,25 @@
     }
   
   </style>
-  <body>
-    <header class="container">
-       <div class="row">
-          <h1 class="col-sm-4">Stay Organised</h1>
-          <nav class="col-sm-8 text-right">
-             <p><a href=" ">Home</a></p>
-             <p><a href=" ">Login</a></p>
-             <p><a href=" ">Register</a></p>
-             <p><a href=" ">Logout</a></p>
-          </nav>
-       </div>
-    </header>
-    {% block content %}
-    {% endblock  %}
-  </body>
+{% block navbar %}
+<header class="container-fluid">
+   <div class="row">
+      <h1 class="col-sm-4">Stay Organised</h1>
+      <nav class="col-sm-8 text-right d-inline-block">
+         <p class="d-inline-block"><a href="{{ url_for('main.index') }}">Home</a></p>
+         {% if current_user.is_anonymous %}
+         <p class="d-inline-block"><a href="{{ url_for('auth.login') }}">Login</a></p>
+         <p class="d-inline-block"><a href=" {{ url_for('auth.register') }}">Register</a></p>
+         {% else %}
+         <p class="d-inline-block"><a href="{{ url_for('auth.logout')}} ">Logout</a></p>
+         {% endif %}
+      </nav>
+   </div>
+</header>
+{% endblock %}
+
+
+{% block content %}
+{% endblock  %}
+
+  

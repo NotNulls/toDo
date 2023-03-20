@@ -15,8 +15,8 @@ class User(db.Model, UserMixin):
         return f'User: {self.name} {self.last_name} - {self.email}'
     
     @login.user_loader
-    def load_user(user_id):
-        return User.query.get(int(user_id))
+    def load_user(id):
+        return User.query.get(int(id))
     
 
 class Task(db.Model):
